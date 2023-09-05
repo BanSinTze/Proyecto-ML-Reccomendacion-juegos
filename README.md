@@ -30,3 +30,9 @@ Se realizo el despliegue de la API usando Railway.
 
 La pagina nos envía directamente al *Docs* de FastAPI, para ver visualmente el comportamiento de nuestras funciones.
 Las respuestas se dan con formato HTML, ya que se pensaba incluir front end (pero el tiempo no nos dió para tanto ☹️)
+
+## EDA (análisis exploratorio de datos)
+Para esta parte se analiza el dataset de juegos y de reviews para ver como se comporta nuestro NLP.
+
+## Modelo de ML
+En esta parte se generará un modelo de ML, el cual al darle un item me recomendará 5 más parecidos a él.
