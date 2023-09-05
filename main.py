@@ -6,6 +6,10 @@ from fastapi.responses import HTMLResponse # Importamos este modulo que nos perm
 
 app = FastAPI()
 
+@app.get("/", include_in_schema=False)
+def index():
+    return RedirectResponse("/docs", status_code=308)
+
 expanded_df_reviews = pd.read_parquet('clean_reviews.parquet.gzip')
 df_steam_games = pd.read_parquet('clean_games.parquet.gzip')
 expanded_df_items = pd.read_parquet('clean_items.parquet.gzip')
