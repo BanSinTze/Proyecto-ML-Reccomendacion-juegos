@@ -5,6 +5,6 @@ Este proyecto se centra en el desarrollo de un sistema de recomendación de vide
 ## Propuesta de trabajo
 ### Transformaciones:
 
---Se han leído los conjuntos de datos en formato JSON.
---Se ha llevado a cabo una ETL(Extracción, transformación y carga).
---Los datos transformados se han exportado y guardado como archivos .parquet, los cuales han sido comprimidos con GZIP para optimizar su almacenamiento.
+- Se han leído los conjuntos de datos en formato JSON.
+- Se ha llevado a cabo una ETL(Extracción, transformación y carga).
+- Los datos transformados se han exportado y guardado como archivos .parquet, los cuales han sido comprimidos con GZIP para optimizar su almacenamiento.
