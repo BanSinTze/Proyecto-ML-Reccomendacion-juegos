@@ -28,7 +28,7 @@ Se realizo el despliegue de la API usando Railway.
 
 **Link de la API:**
 
-[Enlace de la API][(https://mlops-deploy-lngj.onrender.com)](https://devops-production-99cf.up.railway.app/docs)
+(https://devops-production-99cf.up.railway.app/docs)
 
 La pagina nos envía directamente al *Docs* de FastAPI, para ver visualmente el comportamiento de nuestras funciones.
 Las respuestas se dan con formato HTML, ya que se pensaba incluir front end (pero el tiempo no nos dió para tanto ☹️)
