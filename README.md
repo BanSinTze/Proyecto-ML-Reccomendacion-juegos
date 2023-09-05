@@ -2,7 +2,7 @@
 
 Este proyecto se centra en el desarrollo de un sistema de recomendación de videojuegos destinado a los usuarios de Steam, una plataforma de videojuegos internacionalmente reconocida. En mi papel como Ingeniero de MLOps, he liderado la creación de este sistema, partiendo desde la etapa inicial de datos crudos hasta lograr una posible implementación de la API de recomendación. 👾
 
-## Propuesta de trabajo
+## 💼 Propuesta de Trabajo 📋
 ### Transformaciones:
 
 - Se han leído los conjuntos de datos en formato JSON.
@@ -23,3 +23,8 @@ Se desarrolaron las siguientes funciones para realizar consultas en los datos:
 - `developer(desarrollador: str)`
 - `sentiment_analysis(año: int)`
 
+## 🚀 Deployment 🌐
+Se realizo el despliegue de la API usando Railway.
+**Link de la API:**
+La pagina nos envía directamente al *Docs* de FastAPI, para ver visualmente el comportamiento de nuestras funciones.
+Las respuestas se dan con formato HTML, ya que se pensaba incluir front end (pero el tiempo no nos dió para tanto ☹️)
