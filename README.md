@@ -25,6 +25,8 @@ Se desarrolaron las siguientes funciones para realizar consultas en los datos:
 
 ## 🚀 Deployment 🌐
 Se realizo el despliegue de la API usando Railway.
+
 **Link de la API:**
+
 La pagina nos envía directamente al *Docs* de FastAPI, para ver visualmente el comportamiento de nuestras funciones.
 Las respuestas se dan con formato HTML, ya que se pensaba incluir front end (pero el tiempo no nos dió para tanto ☹️)
