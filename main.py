@@ -2,7 +2,7 @@ from fastapi import FastAPI # Imporamos nuestro constructor de apis, FastAPI
 import pandas as pd
 import numpy as np
 from fastapi.responses import HTMLResponse # Importamos este modulo que nos permite hacer los returns como codigo HTML
-
+from fastapi.responses import RedirectResponse
 
 app = FastAPI()
 
