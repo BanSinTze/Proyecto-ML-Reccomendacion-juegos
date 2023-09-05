@@ -1,18 +1,20 @@
-from fastapi import FastAPI # Imporamos nuestro constructor de apis, FastAPI
+from fastapi import FastAPI # Imporamos FastAPI
 import pandas as pd
 import numpy as np
 from fastapi.responses import HTMLResponse # Importamos este modulo que nos permite hacer los returns como codigo HTML
-from fastapi.responses import RedirectResponse
+from fastapi.responses import RedirectResponse # Esta clase se utiliza para crear una respuesta HTTP de redireccionamiento (redirección) en una aplicación FastAPI.
+from ModeL import cosine_sim
 
 app = FastAPI()
 
-@app.get("/", include_in_schema=False)
+@app.get("/", include_in_schema=False) #nos redirecciona directamente a /docs
 def index():
     return RedirectResponse("/docs", status_code=308)
 
 expanded_df_reviews = pd.read_parquet('clean_reviews.parquet.gzip')
 df_steam_games = pd.read_parquet('clean_games.parquet.gzip')
 expanded_df_items = pd.read_parquet('clean_items.parquet.gzip')
+games_model = pd.read_parquet('games_model.parquet.gzip')
 
 @app.get('/userdata/{User_id}', response_class=HTMLResponse)
 def userdata(User_id: str):
@@ -127,3 +129,23 @@ def sentiment_analysis(year: int):
     # Crear un diccionario para almacenar los resultados
     result = sentiment_counts.to_dict()
     return f'<p>{result} </p>'
+
+@app.get('/recomendacion_juego/{id_item}', response_class=HTMLResponse)
+def recomendacion_juego(id_item: str):
+    # Buscamos el índice del producto con un ID específico en nuestro DataFrame 'games_model'
+    item_indice = games_model[games_model['id'] == id_item].index[0]
+    # Calculamos la similitud de coseno entre el producto seleccionado y todos los demás productos
+    items_similares = list(enumerate(cosine_sim[item_indice]))
+    # Ordenamos los productos similares en orden descendente de similitud
+    recommended_items = sorted(items_similares, key=lambda x: x[1], reverse=True)
+    # Extraemos los índices de los juegos más recomendados (excluyendo el juego original)
+    indices = [index for index, _ in recommended_items[1:10]]
+    # Obtenemos los IDs (o app_names) de los juegos recomendados
+    recommended_items = games_model.iloc[indices]['id'].tolist()
+    # Creamos una cadena de texto con las recomendaciones
+    recomedations = ""
+    for i in recommended_items[:5]:
+        # Agregamos los nombres de los juegos recomendados a la cadena
+        recomedations += f'{games_model[games_model.id == i].app_name.tolist()[0]}'
+    return recomedations
+
